@@ -41,6 +41,9 @@ def addcust(request):
     if request.method == 'POST':
         custname = request.POST['cname']
         custamount = request.POST['camount']
-        Customers.objects.create(cust_name=custname,amount=custamount)
-        messages.info(request,'Successful')
+        if Customers.objects.filter(cust_name=custname).exists():
+            messages.warning(request,'Customer already exists')
+        else:
+            Customers.objects.create(cust_name=custname,amount=custamount)
+            messages.info(request,'Successful')
     return render(request,'Banking/Addcustomers.html')
