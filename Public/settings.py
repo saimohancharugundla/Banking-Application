@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '!hk(p1j644kth(cc6*m0ugqr8gwtc*v2b8t+k*j25=pf_1b*^k'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1','publicbankingapp.herokuapp.com']
 
