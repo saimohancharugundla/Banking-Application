@@ -24,8 +24,8 @@ def transfer(request):
                     cus = Customers.objects.get(cust_name=sender)
                     if (int(tamount)<= int(cus.amount)):
                         dt = datetime.datetime.now()
-                        Customers.objects.filter(cust_name=sender).update(amount=(F('amount'))-(tamount),transactions=dt)
-                        Customers.objects.filter(cust_name=receiver).update(amount=(F('amount'))+(tamount))
+                        Customers.objects.filter(cust_name=sender).update(amount=(F('amount')) - int(tamount),transactions=dt)
+                        Customers.objects.filter(cust_name=receiver).update(amount=(F('amount'))+int(tamount))
                         messages.success(request,'Transaction Successful')
                     else:
                         messages.error(request,"Transaction failed! Not enough amount to transfer")
