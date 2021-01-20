@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Public Banking</title>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+    </head>
+    <body>
+    <nav class="navbar navbar-dark navbar-expand-sm sticky-top">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <a href="{% url 'home' %}" class="navbar-brand mx-auto" style="font-weight:bold;font-size:30px;"><img src="{% static 'Media/logo.png' %}" width="50" height="50"> Public Banking</a>
+        
+                <div class="collapse navbar-collapse" id="Navbar">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                        <a href="{% url 'home' %}" class="nav-link"><span class="fa fa-home fa-lg"></span> Home</a>
+                        </li>
+                        
+                        <li class="nav-item ">
+                        <a href="{% url 'customer' %}" class="nav-link"><span class="fa fa-list fa-lg"></span> Customers</a>
+                        </li>
+                        <li class="nav-item">
+                        <a href="{% url 'transfer' %}" class="nav-link"><span class="fa fa-info fa-lg"></span> Transfer Amount</a>
+                        </li>
+            
+                    </ul>
+                    
+                </div>
+        
+            </div>
+        </nav>
+    <h1 class="text-center">Add Customers data</h1>
+        <div class="row row-content" align="center">
+        
+            <div class="col-12 col-sm-6 col-md-6">
+                <form method="POST" enctype="multipart/form-data" >
+                    {% csrf_token %}
+                        <input type="text" name="cname" class="form-control" placeholder="Customer's Name">
+                        <input type="text" name="camount" class="form-control" placeholder="Amount">
+                            
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </body>
+    </html>
